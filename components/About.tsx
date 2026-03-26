@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
 
 const TAGS = ['Editorial', 'Runway', 'Commercial', 'Lookbook', 'Campaign']
 
@@ -50,7 +51,15 @@ export default function About() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="photo-slot aspect-[3/4] w-full" />
+          <div className="relative aspect-[3/4] w-full overflow-hidden">
+            <Image
+              src="/picture-01.jpeg"
+              alt="Romain — Fashion Model, Ho Chi Minh City"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </div>
         </motion.div>
 
         {/* Bio copy */}
