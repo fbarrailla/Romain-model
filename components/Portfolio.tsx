@@ -14,7 +14,7 @@ interface PhotoItem {
 }
 
 const PHOTOS: PhotoItem[] = [
-  { id: 1,  caption: 'Prestige Vietnam, 2024',    tag: 'editorial',   aspect: 'aspect-[3/4]',  colClass: 'md:col-span-2', src: '/picture-01.jpeg' },
+  { id: 1,  caption: 'Prestige Vietnam, 2024',    tag: 'editorial',   aspect: 'aspect-[1/3]',  colClass: 'md:col-span-2', src: '/picture-01.jpeg' },
   { id: 2,  caption: 'Season Lookbook',            tag: 'commercial',  aspect: 'aspect-[3/4]',  colClass: '' },
   { id: 3,  caption: 'HCMC Fashion Week SS25',     tag: 'runway',      aspect: 'aspect-[4/5]',  colClass: '' },
   { id: 4,  caption: 'L\'Officiel Asia',           tag: 'editorial',   aspect: 'aspect-[3/4]',  colClass: '' },
@@ -43,7 +43,7 @@ function PhotoCard({ item, index }: { item: PhotoItem; index: number }) {
       }}
       className={`${item.colClass} group cursor-pointer`}
     >
-      <div className={`${item.src ? '' : 'photo-slot'} ${item.aspect} w-full relative overflow-hidden`}>
+      <div className={`${item.src ? '' : 'photo-slot'} ${item.aspect} w-full relative overflow-hidden max-h-96 max-w-64`}>
         {item.src && (
           <Image
             src={item.src}

@@ -40,13 +40,13 @@ export default function Hero() {
   return (
     <section className="relative h-screen min-h-[600px] flex flex-col justify-end overflow-hidden">
       {/* Ambient gradient */}
-      <div
+      {/* <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
             'radial-gradient(ellipse at 20% 70%, rgba(201,169,110,0.04) 0%, transparent 60%)',
         }}
-      />
+      /> */}
 
       {/* Left vertical label */}
       <motion.div
