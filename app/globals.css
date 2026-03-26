@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --ink: #0d0b09;
+  --ink-soft: #161310;
+  --cream: #f0ebe3;
+  --cream-dim: #8a8278;
+  --gold: #c9a96e;
+  --gold-light: #dbc08f;
+  --gold-deep: #8a6e3e;
+  --rule: #2a2520;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Thin gold scrollbar */
+::-webkit-scrollbar {
+  width: 1px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-deep);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--gold);
+  color: var(--ink);
+}
+
+/* Photo placeholder base */
+.photo-slot {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    155deg,
+    #1c1915 0%,
+    #100e0c 45%,
+    #181512 100%
+  );
+}
+
+.photo-slot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 35% 30%, rgba(201, 169, 110, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 65% 75%, rgba(201, 169, 110, 0.04) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Subtle noise overlay for each photo */
+.photo-slot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  opacity: 1;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+@layer utilities {
+  .writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
