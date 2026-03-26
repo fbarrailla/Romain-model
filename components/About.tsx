@@ -51,7 +51,7 @@ export default function About() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="relative aspect-[3/4] w-full overflow-hidden">
+          <div className="relative aspect-[3/4] w-1/2 overflow-hidden">
             <Image
               src="/picture-01.jpeg"
               alt="Romain — Fashion Model, Ho Chi Minh City"
