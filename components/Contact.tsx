@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 
 const CONTACT_INFO = [
   { label: 'Agency',    value: 'Your Agency Name',        href: undefined },
@@ -16,10 +17,26 @@ export default function Contact() {
 
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSent(true)
+    setSending(true)
+    setError(null)
+    try {
+      await emailjs.send(
+        'service_nop1bn9',
+        'template_tr5eo3d',
+        { name: form.name, email: form.email, message: form.message },
+        '-BGhKDSFxI8D8E1hT'
+      )
+      setSent(true)
+    } catch {
+      setError('Something went wrong. Please try again.')
+    } finally {
+      setSending(false)
+    }
   }
 
   const field = (id: keyof typeof form, label: string, type = 'text', rows?: number) => (
@@ -130,12 +147,16 @@ export default function Contact() {
               {field('name', 'Name')}
               {field('email', 'Email', 'email')}
               {field('message', 'Message', 'text', 4)}
+              {error && (
+                <p className="font-dm text-[10px] tracking-widest text-red-400 uppercase">{error}</p>
+              )}
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-5 font-dm text-[10px] tracking-[0.4em] uppercase text-cream hover:text-gold transition-colors duration-300"
+                  disabled={sending}
+                  className="group inline-flex items-center gap-5 font-dm text-[10px] tracking-[0.4em] uppercase text-cream hover:text-gold transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>Send Enquiry</span>
+                  <span>{sending ? 'Sending…' : 'Send Enquiry'}</span>
                   <span className="block w-8 h-px bg-current group-hover:w-16 transition-all duration-500" />
                 </button>
               </div>
