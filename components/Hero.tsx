@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const CHARS = 'ROMAIN'.split('')
 
@@ -39,14 +40,16 @@ const slideUp = (delay = 0) => ({
 export default function Hero() {
   return (
     <section className="relative h-screen min-h-[600px] flex flex-col justify-end overflow-hidden">
-      {/* Ambient gradient */}
-      {/* <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse at 20% 70%, rgba(201,169,110,0.04) 0%, transparent 60%)',
-        }}
-      /> */}
+      {/* Hero background image */}
+      <Image
+        src="/hero.png"
+        alt="Romain"
+        fill
+        priority
+        className="object-cover object-center"
+      />
+      {/* Dark overlay so text stays readable */}
+      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
       {/* Left vertical label */}
       <motion.div
