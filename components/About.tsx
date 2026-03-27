@@ -53,7 +53,7 @@ export default function About() {
         >
           <div className="relative aspect-square w-1/2 overflow-hidden">
             <Image
-              src="/picture-01.jpeg"
+              src="/photo-37.jpg"
               alt="Romain — Fashion Model, Ho Chi Minh City"
               fill
               className="object-cover object-top"

@@ -14,10 +14,10 @@ interface PhotoItem {
 }
 
 const PHOTOS: PhotoItem[] = [
-  { id: 1,  caption: 'Prestige Vietnam, 2024',    tag: 'editorial',   aspect: 'aspect-[1/3]',  colClass: 'md:col-span-2', src: '/picture-01.jpeg' },
-  { id: 2,  caption: 'Season Lookbook',            tag: 'commercial',  aspect: 'aspect-[3/2]',  colClass: '', src: '/picture-02.jpeg' },
-  { id: 3,  caption: 'HCMC Fashion Week SS25',     tag: 'runway',      aspect: 'aspect-[3/2]',  colClass: '', src: '/picture-03.jpeg' },
-  { id: 4,  caption: 'L\'Officiel Asia',           tag: 'editorial',   aspect: 'aspect-[2/3]',  colClass: '', src: '/picture-04.jpeg' },
+  { id: 1,  caption: 'Prestige Vietnam, 2024',    tag: 'editorial',   aspect: 'aspect-[1/3]',  colClass: 'md:col-span-2', src: '/photo-37.jpg' },
+  { id: 2,  caption: 'Season Lookbook',            tag: 'commercial',  aspect: 'aspect-[3/2]',  colClass: '', src: '/photo-38.jpg' },
+  { id: 3,  caption: 'HCMC Fashion Week SS25',     tag: 'runway',      aspect: 'aspect-[3/2]',  colClass: '', src: '/photo-39.jpg' },
+  { id: 4,  caption: 'L\'Officiel Asia',           tag: 'editorial',   aspect: 'aspect-[2/3]',  colClass: '', src: '/photo-40.jpg' },
   { id: 5,  caption: 'Campaign — Mekong Studio',  tag: 'commercial',  aspect: 'aspect-[16/9]', colClass: 'md:col-span-3' },
   { id: 6,  caption: 'Personal Work',              tag: 'editorial',   aspect: 'aspect-square', colClass: '' },
   { id: 7,  caption: 'Brand Campaign 2023',        tag: 'commercial',  aspect: 'aspect-[3/4]',  colClass: '' },
