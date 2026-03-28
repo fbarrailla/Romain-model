@@ -5,10 +5,10 @@ import { motion, useInView } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 
 const CONTACT_INFO = [
-  { label: 'Agency',    value: 'Your Agency Name',        href: undefined },
-  { label: 'Email',     value: 'booking@romainmodel.com', href: 'mailto:booking@romainmodel.com' },
-  { label: 'Instagram', value: '@romainmodel',            href: '#' },
-  { label: 'Location',  value: 'Hồ Chí Minh, Việt Nam',  href: undefined },
+  { label: 'Agency',    value: 'Romain Model',                href: undefined },
+  { label: 'Email',     value: 'contact@romain-model.com',    href: 'mailto:contact@romain-model.com' },
+  { label: 'Instagram', value: '@_ownvision',                 href: 'https://www.instagram.com/_ownvision/' },
+  { label: 'Location',  value: 'Hồ Chí Minh, Việt Nam',      href: undefined },
 ]
 
 export default function Contact() {
@@ -118,6 +118,8 @@ export default function Contact() {
               {href ? (
                 <a
                   href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="font-cormorant text-xl text-cream hover:text-gold transition-colors duration-300"
                 >
                   {value}
