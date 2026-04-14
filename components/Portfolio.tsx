@@ -143,7 +143,7 @@ function Lightbox({ items, index, onClose, onPrev, onNext }: LightboxProps) {
           {item.src && (
             <div className="relative" style={{ height: '80vh', maxWidth: '90vw', aspectRatio: '2/3' }}>
               <Image
-                src={item.src}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}${item.src}`}
                 alt={item.caption}
                 fill
                 className="object-contain"
@@ -198,7 +198,7 @@ function PhotoCard({
       <div className={`${item.aspect} w-full relative overflow-hidden`}>
         {item.src && (
           <Image
-            src={item.src}
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}${item.src}`}
             alt={item.caption}
             fill
             className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
