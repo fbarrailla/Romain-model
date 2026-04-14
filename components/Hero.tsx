@@ -42,7 +42,7 @@ export default function Hero() {
     <section className="relative h-screen min-h-[600px] flex flex-col justify-end overflow-hidden">
       {/* Hero background image */}
       <Image
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/hero.png`}
+        src="/hero.png"
         alt="Romain"
         fill
         priority
